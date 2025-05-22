@@ -20,26 +20,31 @@ function List() {
 
     }
     return (
-        <>
-            <h1>Todo List</h1>
+        <div className='container'>
+            <h1 className='text-center'>Todo List</h1>
             <form onSubmit={HandleSubmit}>
+                <div className='d-flex gap-4'>
                 <input type="text"
                     name="todo"
                     id="todo"
                     placeholder='Enter your todos here'
                     value={Input}
                     onChange={HandleInput}
+                    className='form-control'
                 />
-                <button>Submit</button>
+                <button className='btn btn-success'>Submit</button>
+                </div>
             </form>
-            <ul>
+            <ul className='list-group mt-4'>
                 {todos.map((todo, index) => (
-                    <li key={index}>{todo}
-                        <button onClick={()=>{HandleDelete(index)}}>Delete</button>
-                    </li>
+                    <div className='d-flex gap-4 mt-2'>
+                    <li key={index} className='text-left'>{todo} </li>
+                        <button onClick={()=>{HandleDelete(index)}} className='btn btn-danger'>Delete</button>
+                   
+                    </div>
                 ))}
             </ul>
-        </>
+        </div>
     )
 }
 
